@@ -1,0 +1,20 @@
+.row {
+	display: inline-flex;
+}
+
+.butt {
+	height: 50px;
+	width: 50px;
+	background-color: lightgrey;
+}
+
+.container {
+	margin: 50px;
+}
+
+.grid {
+	height: 50px;
+	width: 50px;
+	background-color: lightgrey;
+	margin: 2px;	
+}
