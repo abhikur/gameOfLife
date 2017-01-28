@@ -3,7 +3,7 @@ function makeGrid() {
 	for(i=0; i < 7; i++) {
 		var tag = '<div class="row">';
 		for(j=0; j < 7; j++) {
-			tag += '<div class="grid" id="' + i + j + '"><button class="butt"onclick="clicked()"></button></div>';
+			tag += '<button class="butt" id="' + i + j + '"onclick="clicked(\'' + i + j + '\')"></button>';
 		}
 		tag += '</div><br>';
 		grid.push(tag);

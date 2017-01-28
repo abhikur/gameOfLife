@@ -6,6 +6,14 @@
 	height: 50px;
 	width: 50px;
 	background-color: lightgrey;
+	margin: 2px;	
+}
+
+.selectedButton {
+	height: 50px;
+	width: 50px;
+	background-color: red;
+	margin: 2px;		
 }
 
 .container {

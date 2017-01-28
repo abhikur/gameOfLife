@@ -1,4 +1,4 @@
-var Grid = require('../js/grid');
+var Grid = require('../game/grid');
 var assert = require('assert');
 
 describe('Grid', function () {
@@ -26,6 +26,14 @@ describe('Grid', function () {
         grid.populateParticulars(positions);
         assert.equal(grid.stateAt(position1), 1);
         assert.equal(grid.stateAt(position2), 1);
+        assert.equal(grid.stateAt({x:1, y:1}), 0);
+    });
+    it('should poplate only (0,0)th cell', function () {
+        var grid = new Grid(size);
+        grid.populateWith(0);
+        var position = {x: 0, y: 0};
+        grid.populateParticular(position);
+        assert.equal(grid.stateAt(position), 1);
         assert.equal(grid.stateAt({x:1, y:1}), 0);
     });
     it('should kill a cell', function () {
@@ -158,4 +166,20 @@ describe('Grid', function () {
         assert.equal(firstGen.stateAt({x:5,y:2}), 0);
         assert.equal(firstGen.stateAt({x:5,y:1}), 0);
     });
+    it('should give the indices of the grid which are alive', function() {
+        var grid = new Grid({h:7, w:7});
+        grid.populateWith(0);
+        var positions = [{x:4,y:2},{x:4,y:3},{x:4,y:4}];
+        grid.populateParticulars(positions);
+        var indices = grid.liveCells()
+        assert.deepEqual(indices, ['42','43','44']);
+    });
+    it('should give the indices of the grid which are dead', function() {
+        var grid = new Grid({h:2, w:2});
+        grid.populateWith(0);
+        var positions = [{x:0,y:0},{x:0,y:1},{x:1,y:0}];
+        grid.populateParticulars(positions);
+        var indices = grid.deadCells()
+        assert.deepEqual(indices, ['11']);
+    })
 });
