@@ -182,7 +182,4 @@ describe('Grid', function () {
         var indices = grid.deadCells()
         assert.deepEqual(indices, ['11']);
     });
-    it('should fail', function() {
-        assert.equal(true, false);
-    })
 });
